@@ -1,0 +1,19 @@
+
+profiles:
+  test:
+    - docker-compose.yml
+
+  stack:
+    - docker-compose.yml
+
+
+
+tasks:
+  test:
+    command: compose-flow compose run --rm app python -m unittest
+
+  publish:
+    command: dc task default --tag-version --tag-docker-image --write-tag --push build
+
+  deploy:
+    command: dc task default --deploy
