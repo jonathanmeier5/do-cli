@@ -16,7 +16,7 @@ setup(
     packages=['docli'],
     entry_points={
         'console_scripts': [
-            'do-cli = docli.console_scripts:',
+            'do-create = docli.console_scripts:create',
         ],
     },
 )
