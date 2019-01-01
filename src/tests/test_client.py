@@ -6,6 +6,7 @@ from docli.client import DOClient
 class DOClientTestCase(TestCase):
 
     @mock.patch('docli.client.DOClient._block_on_create_droplet')
+    @mock.patch('docli.client.digitalocean.Droplet.create')
     @mock.patch('docli.client.digitalocean.Droplet.__init__')
     def test_create_droplet(self, *mocks):
         """
@@ -28,4 +29,5 @@ class DOClientTestCase(TestCase):
         client.create_droplet(**kwargs)
 
         mocks[0].assert_called_with(token=client.token,**kwargs)
+        mocks[1].assert_called()
 

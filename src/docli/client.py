@@ -33,6 +33,8 @@ class DOClient:
                     **kwargs,
                 )
 
+        droplet.create()
+
         self._block_on_create_droplet(droplet)
 
         return droplet
