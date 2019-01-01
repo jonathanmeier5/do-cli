@@ -59,4 +59,5 @@ class DOClient:
 
         manager = digitalocean.Manager(token=self.token)
         my_droplets = manager.get_all_droplets()
-        print(my_droplets)
+        for droplet in my_droplets:
+            print(f'id={droplet.id}, name={droplet.name}, ip={droplet.ip_address}')
