@@ -51,4 +51,6 @@ class DOClient:
                     **kwargs,
                 )
 
+        print(f'destroying droplet id={droplet.id}, name={droplet.name}')
+
         droplet.destroy()

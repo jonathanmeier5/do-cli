@@ -41,9 +41,19 @@ def destroy():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('droplet_id', metavar='ID', type=int, nargs='1', help='Droplet id to destroy')
+    parser.add_argument('ids', type=int, nargs='+', help='Droplet ids to destroy')
 
     args = parser.parse_args()
 
-    client.destroy_droplet(**vars(args))
+    for droplet_id in args.ids:
+
+        client.destroy_droplet(**{'id': droplet_id})
+
+def list():
+    """
+    List DO droplets.
+    """
+
+    client = DOClient(DO_SECRET_TOKEN)
+    client.list_droplets()
 
