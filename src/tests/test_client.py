@@ -1,12 +1,12 @@
 from unittest import TestCase
 from unittest import mock
 
-from docli.subparsers.client import DOClient
+from docli.client import DOClient
 
 class DOClientTestCase(TestCase):
 
-    @mock.patch('docli.subparsers.client.DOClient._block_on_create_droplet')
-    @mock.patch('docli.subparsers.client.digitalocean.Droplet.__init__')
+    @mock.patch('docli.client.DOClient._block_on_create_droplet')
+    @mock.patch('docli.client.digitalocean.Droplet.__init__')
     def test_create_droplet(self, *mocks):
         """
         Test that we can successfully create a droplet with passthrough args.
