@@ -28,6 +28,13 @@ class DOClient:
         Optionally block on creation of the droplet.
         """
 
+        manager = digitalocean.Manager(token=self.token)
+        # just add all keys
+        keys = manager.get_all_sshkeys()
+
+        if 'ssh_keys' not in kwargs:
+            kwargs['ssh_keys'] = keys
+
         droplet = digitalocean.Droplet(
                     token=self.token,
                     **kwargs,
