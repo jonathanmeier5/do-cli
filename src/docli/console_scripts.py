@@ -32,4 +32,18 @@ def create():
     except Exception as e:
         print(e)
 
+def destroy():
+    """
+    Destroy a DO droplet.
+    """
+
+    client = DOClient(DO_SECRET_TOKEN)
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('droplet_id', metavar='ID', type=int, nargs='1', help='Droplet id to destroy')
+
+    args = parser.parse_args()
+
+    client.destroy_droplet(**vars(args))
 

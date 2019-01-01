@@ -35,6 +35,20 @@ class DOClient:
 
         droplet.create()
 
+        print(f'droplet id: {droplet.id}')
+
         self._block_on_create_droplet(droplet)
 
         return droplet
+
+    def destroy_droplet(self, *args, **kwargs) -> None:
+        """
+        Remove a DO droplet based on specified args.
+        """
+
+        droplet = digitalocean.Droplet(
+                    token=self.token,
+                    **kwargs,
+                )
+
+        droplet.destroy()

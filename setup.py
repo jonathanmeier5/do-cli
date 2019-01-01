@@ -17,6 +17,7 @@ setup(
     entry_points={
         'console_scripts': [
             'do-create = docli.console_scripts:create',
+            'do-destroy = docli.console_scripts:destroy',
         ],
     },
 )
