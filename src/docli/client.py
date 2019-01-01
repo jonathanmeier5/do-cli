@@ -54,3 +54,9 @@ class DOClient:
         print(f'destroying droplet id={droplet.id}, name={droplet.name}')
 
         droplet.destroy()
+
+    def list_droplets(self, *args, **kwargs):
+
+        manager = digitalocean.Manager(token=self.token)
+        my_droplets = manager.get_all_droplets()
+        print(my_droplets)

@@ -18,6 +18,7 @@ setup(
         'console_scripts': [
             'do-create = docli.console_scripts:create',
             'do-destroy = docli.console_scripts:destroy',
+            'do-list = docli.console_scripts:list',
         ],
     },
 )
