@@ -68,3 +68,16 @@ class DOClient:
         my_droplets = manager.get_all_droplets()
         for droplet in my_droplets:
             print(f'id={droplet.id}, name={droplet.name}, ip={droplet.ip_address}')
+
+    def list_images(self, *args, **kwargs):
+
+        manager = digitalocean.Manager(token=self.token)
+        images = manager.get_images()
+        for image in images:
+            print(
+                    (
+                        f'id={image.id}, slug={image.slug}, distribution={image.distribution}, '
+                        f'name={image.name}'
+                    )
+                )
+
